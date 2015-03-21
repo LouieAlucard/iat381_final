@@ -1,0 +1,25 @@
+body { 
+}
+
+.navbar-fixed-top {
+    z-index: 10;
+    background: #213c48;
+/*    opacity: 0.3;*/
+}
+
+.navbar {
+    border: none;
+}
+
+svg.game {
+    background: rgba(72,118,180,1);
+}
+
+rect.hole {
+	fill: black;
+}
+
+rect.hole.inserted {
+	fill: yellow;
+}
+
