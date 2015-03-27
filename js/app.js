@@ -5,7 +5,11 @@ var gameApp = angular.module('gameApp', [
 gameApp.config(['$routeProvider',
 	function($routeProvider) {
 		$routeProvider.
-			when('/main', {
+            when('/main', {
+                templateUrl: 'views/menu.html',
+                controller: 'menuCtrl'
+            }).
+			when('/game', {
 				templateUrl: 'views/game.html',
 				controller: 'gameCtrl'
 			}).

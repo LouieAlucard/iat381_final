@@ -4,6 +4,8 @@ gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, shared
   $scope.svgHeight = window.innerHeight;
 
 
+  $scope.faceDimension = window.innerWidth * 0.5;
+
 
   $scope.holeW = $scope.svgWidth * 0.02;
   $scope.holeH = $scope.holeW * 3;
@@ -29,8 +31,13 @@ gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, shared
   $scope.holeCoord = holeCoord;
 
 
-  $scope.daggerSize = $scope.svgWidth * 0.05;
+  $scope.daggerSize = $scope.svgWidth * 0.05
 
+
+  $scope.set = function(){
+    var a = angular.element( document.querySelector( '#cube' ) );
+    a[0].style['webkitTransform'] = 'rotateX(' + 0 + 'deg) rotateY(' + 0 + 'deg) rotateZ(' + 0 + 'deg)';
+  }
 
 });
 
