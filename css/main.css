@@ -29,9 +29,7 @@ rect.hole.inserted {
 	width: 125px;
 	height: 125px;
 	cursor: pointer;
-	-ms-transform: scale(2,2); 
-    -webkit-transform: scale(2,2);
-    transform: scale(2,2);
+	z-index: 0;
 }
 
 #cube {
@@ -40,7 +38,6 @@ rect.hole.inserted {
 	top: 25px;
 	width: 74px;
 	height: 74px;
-	z-index: 100;
 	backface-visibility: visible;
 	pointer-events: none;
 	-webkit-transform-style: preserve-3d;
@@ -74,10 +71,14 @@ rect.hole.inserted {
 	-webkit-transform: translateX(-37px) rotateY(-90deg);
 }
 #cube .side:nth-child(5) {
-	-webkit-transform: translateZ(37px) rotateZ(90deg);
+	-webkit-transform: translateZ(37px);
 }
 #cube .side:nth-child(6) {
-	-webkit-transform: translateZ(-37px) rotateZ(-90deg);
+	-webkit-transform: translateZ(-37px);
+}
+
+.dagger {
+	z-index: 200;
 }
 
 

@@ -66,6 +66,11 @@ interact('.hole').dropzone({
 
   // when hold over dropzone
   ondragenter: function (event) {
+    var draggableElement = event.relatedTarget,
+        dropzoneElement = event.target;
+
+    dropzoneElement.classList.add('inserted');
+    
   
   },
 

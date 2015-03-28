@@ -1,10 +1,14 @@
 gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, sharedProperties, $location, $http) {
 
+  $scope.boxScale = window.innerWidth / 120;
+  $scope.boxLeft = window.innerWidth * 0.07 + 75;
+  $scope.boxTop = window.innerHeight * 0.55;
+
 	$scope.svgWidth = window.innerWidth;
   $scope.svgHeight = window.innerHeight;
 
 
-  $scope.faceDimension = window.innerWidth * 0.5;
+
 
 
   $scope.holeW = $scope.svgWidth * 0.02;
@@ -36,7 +40,7 @@ gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, shared
 
   $scope.set = function(){
     var a = angular.element( document.querySelector( '#cube' ) );
-    a[0].style['webkitTransform'] = 'rotateX(' + 0 + 'deg) rotateY(' + 0 + 'deg) rotateZ(' + 0 + 'deg)';
+    a[0].style['webkitTransform'] = 'rotateX(' + 0 + 'deg) rotateY(' + -180 + 'deg) rotateZ(' + 0 + 'deg)';
   }
 
 });
