@@ -1,5 +1,6 @@
 var gameApp = angular.module('gameApp', [
-	'ngRoute'
+	'ngRoute',
+    'ngAnimate'
 ]);
 
 gameApp.config(['$routeProvider',

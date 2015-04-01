@@ -11,6 +11,7 @@
 		   -webkit-transform: scale({{boxScale}},{{boxScale}});
 		   transform: scale({{boxScale}},{{boxScale}});"
 	ng-click="set()">
+
 	<div id="cube" style="-webkit-transform: rotateX(-20deg) rotateY(-30deg) rotateZ(0deg);" >
 		<svg class="side" width="100px" height="100px">
 			<rect fill="#DAD6CC" width="74" height="74"></rect>
@@ -18,62 +19,108 @@
 		<svg class="side" width="100px" height="100px">
 			<rect fill="#DAD6CC" width="74" height="74"></rect>
 		</svg>
-		<svg class="side" width="100px" height="100px">
+		<svg class="side right" id="surface_1" width="100px" height="100px">
 			<rect fill="#DAD6CC" width="74" height="74"></rect>
 			<g>
-				<rect fill="black" x="22" y="15" width="7" height="20"></rect>
-				<rect fill="black" x="45" y="15	" width="7" height="20"></rect>
-				<rect fill="black" x="22" y="45" width="7" height="20"></rect>
-				<rect fill="black" x="45" y="45" width="7" height="20"></rect>
+				<rect fill="black" x="18" y="15" width="7" height="20" ng-click="insert($event)"></rect>
+				<rect fill="black" x="48" y="15	" width="7" height="20" ng-click="insert($event)"></rect>
+				<rect fill="black" x="18" y="45" width="7" height="20" ng-click="insert($event)"></rect>
+				<rect fill="black" x="48" y="45" width="7" height="20" ng-click="insert($event)"></rect>
+				
+				<image ng-xlink-href="img/game/{{imgSword[1]}}.png" xlink:href="" x="5" y="15" width="25px" height="25px"/>
+				<image ng-xlink-href="img/game/{{imgSword[1]}}.png" xlink:href="" x="35" y="15" width="25px" height="25px"/>
+				<image ng-xlink-href="img/game/{{imgSword[1]}}.png" xlink:href="" x="5" y="45" width="25px" height="25px"/>
+				<image ng-xlink-href="img/game/{{imgSword[1]}}.png" xlink:href=""  x="35" y="45" width="25px" height="25px"/>
 			</g>
 		</svg>
-		<svg class="side" width="100px" height="100px">
+		<svg class="side" id="surface_3" width="100px" height="100px">
 			<rect fill="#dddddd" width="74" height="74"></rect>
 			<g>
-				<rect fill="black" x="22" y="15" width="7" height="20"></rect>
-				<rect fill="black" x="45" y="15	" width="7" height="20"></rect>
-				<rect fill="black" x="22" y="45" width="7" height="20"></rect>
-				<rect fill="black" x="45" y="45" width="7" height="20"></rect>
+				<rect fill="black" x="18" y="15" width="7" height="20"></rect>
+				<rect fill="black" x="48" y="15	" width="7" height="20"></rect>
+				<rect fill="black" x="18" y="45" width="7" height="20"></rect>
+				<rect fill="black" x="48" y="45" width="7" height="20"></rect>
+
+				<image ng-xlink-href="img/game/{{imgSword[3]}}.png" xlink:href="" x="5" y="15" width="25px" height="25px"/>
+				<image ng-xlink-href="img/game/{{imgSword[3]}}.png" xlink:href="" x="35" y="15" width="25px" height="25px"/>
+				<image ng-xlink-href="img/game/{{imgSword[3]}}.png" xlink:href="" x="5" y="45" width="25px" height="25px"/>
+				<image ng-xlink-href="img/game/{{imgSword[3]}}.png" xlink:href=""  x="35" y="45" width="25px" height="25px"/>
 			</g>
 		</svg>
-		<svg class="side" width="100px" height="100px">
-			<rect fill="#cccccc" width="74" height="99"></rect>
-			<<g>
-				<rect class="hole" fill="black" x="22" y="15" width="7" height="20"></rect>
-				<rect class="hole" fill="black" x="45" y="15	" width="7" height="20"></rect>
-				<rect class="hole" fill="black" x="22" y="45" width="7" height="20"></rect>
-				<rect class="hole" fill="black" x="45" y="45" width="7" height="20"></rect>
+		<svg class="side front" id="surface_0" width="100px" height="100px">
+			<rect fill="green" width="74" height="99"></rect>
+			<g>	
+				<rect fill="black" x="18" y="15" width="7" height="20" ng-click="insert($event)"></rect>
+				<rect fill="black" x="48" y="15	" width="7" height="20" ng-click="insert($event)"></rect>
+				<rect fill="black" x="18" y="45" width="7" height="20" ng-click="insert($event)"></rect>
+				<rect fill="black" x="48" y="45" width="7" height="20" ng-click="insert($event)"></rect>
+
+				<image ng-xlink-href="img/game/{{imgSword[0]}}.png" xlink:href="" x="5" y="15" width="25px" height="25px"/>
+				<image ng-xlink-href="img/game/{{imgSword[0]}}.png" xlink:href="" x="35" y="15" width="25px" height="25px"/>
+				<image ng-xlink-href="img/game/{{imgSword[0]}}.png" xlink:href="" x="5" y="45" width="25px" height="25px"/>
+				<image ng-xlink-href="img/game/{{imgSword[0]}}.png" xlink:href=""  x="35" y="45" width="25px" height="25px"/>
 			</g>
 		</svg>
-		<svg class="side" width="100px" height="100px">
+		<svg class="side" id="surface_2" width="100px" height="100px">
 			<rect fill="#efefef" width="74" height="74"></rect>
 			<g>
-				<rect fill="black" x="22" y="15" width="7" height="20"></rect>
-				<rect fill="black" x="45" y="15	" width="7" height="20"></rect>
-				<rect fill="black" x="22" y="45" width="7" height="20"></rect>
-				<rect fill="black" x="45" y="45" width="7" height="20"></rect>
+				<rect fill="black" x="18" y="15" width="7" height="20"></rect>
+				<rect fill="black" x="48" y="15	" width="7" height="20"></rect>
+				<rect fill="black" x="18" y="45" width="7" height="20"></rect>
+				<rect fill="black" x="48" y="45" width="7" height="20"></rect>
+
+				<image ng-xlink-href="img/game/{{imgSword[2]}}.png" xlink:href="" x="5" y="15" width="25px" height="25px"/>
+				<image ng-xlink-href="img/game/{{imgSword[2]}}.png" xlink:href="" x="35" y="15" width="25px" height="25px"/>
+				<image ng-xlink-href="img/game/{{imgSword[2]}}.png" xlink:href="" x="5" y="45" width="25px" height="25px"/>
+				<image ng-xlink-href="img/game/{{imgSword[2]}}.png" xlink:href=""  x="35" y="45" width="25px" height="25px"/>
 			</g>
 		</svg>
 	</div>
 </div>
 
 
-<svg class="game" ng-width="{{svgWidth}}" ng-height="{{svgHeight}}">
-
-  <rect ng-repeat="(key, value) in holeCoord"  class="hole" ng-x="{{value[0]}}" ng-y="{{value[1]}}" ng-width="{{holeW}}" ng-height="{{holeH}}" />
 
 
-  <circle class="dagger" cx="30" cy="50" ng-r="{{daggerSize}}" stroke="black" stroke-width="3" fill="red" />
-        
 
-</svg>
 
-<div class="dagger" style="z-index: 50">
-	<svg width="100" height="100">
-	<image class="dagger" xlink:href="greenSword.png" height="50px" width="50px"/>
-	</svg>
-	
+
+
+
+
+
+<div id="swordHolder_front"></div>
+<div id="swordHolder_right"></div>
+
+
+
+
+<div 
+	id="cube-headarea" 
+	style="left: 100px; 
+		   top: 200px;" >
+
+	<div id="cube-head" style="-webkit-transform: rotateX(-20deg) rotateY(-30deg) rotateZ(0deg);" >
+		<svg class="side" width="100px" height="100px">
+			<rect fill="red" width="74" height="74"></rect>
+		</svg>
+		<svg class="side" width="100px" height="100px">
+			<rect fill="blue" width="74" height="74"></rect>
+		</svg>
+		<svg class="side" width="100px" height="100px">
+			<rect fill="red" width="74" height="74"></rect>
+		</svg>
+		<svg class="side" width="100px" height="100px">
+			<rect fill="blue" width="74" height="74"></rect>
+		</svg>
+		<svg class="side" width="100px" height="100px">
+			<rect fill="red" width="74" height="74"></rect>
+		</svg>
+		<svg class="side" width="100px" height="100px">
+			<rect fill="blue" width="74" height="74"></rect>
+		</svg>
+	</div>
 </div>
+
 
 
 
