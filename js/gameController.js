@@ -1,18 +1,31 @@
 gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, sharedProperties, $location, $http, $timeout) {
 
-  var shit = angular.element(document.getElementsByClassName("right"));
-  var shitid = shit[0].id;
-  var n2 = shitid[shitid.length-1];
+  var player = 0;
+  var sword_color = "red";
+  var win = [Math.floor(Math.random() * (3 - 0 + 1)), Math.floor(Math.random() * (3 - 0 + 1))];
+  win = [0, 1];
+  var head;
+  //console.log(win);
 
-  $scope.imgSword = [
-    "redL",
-    "redR",
-    "redL",
-    "redL"
-  ]
- 
-  var n2 = shitid[shitid.length-1];
-  console.log(n2);
+
+  $scope.imgSword = {
+    "surface_0":{
+      "hole":[{"color":"red"}, {"color":"red"}, {"color":"red"}, {"color":"red"}],
+      "dir":"l"
+    },
+    "surface_1":{
+      "hole":[{"color":"red"}, {"color":"red"}, {"color":"red"}, {"color":"red"}],
+      "dir":"r"
+    },
+    "surface_2":{
+      "hole":[{"color":"red"}, {"color":"red"}, {"color":"red"}, {"color":"red"}],
+      "dir":"l"
+    },
+    "surface_3":{
+      "hole":[{"color":"red"}, {"color":"red"}, {"color":"red"}, {"color":"red"}],
+      "dir":"l"
+    },
+  };
 
   
   if (window.innerWidth < window.innerHeight) {
@@ -38,13 +51,27 @@ gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, shared
     var animatedSword = angular.element( document.querySelector( '#'+animatedSword_ID ) );
 
     var imgInserted = angular.element(parent.getElementsByTagName('image'));
-    console.log(imgInserted[index]);
+    //console.log(imgInserted[index]);
 
     var swordWdith
     var swordX
     var swordY 
 
     var d;
+
+    if (player == 0) {
+      sword_color = "red";
+      player ++;
+    } else if (player == 1) {
+      sword_color = "green";
+      player ++;
+    } else if (player == 2) {
+      sword_color = "yellow";
+      player ++;
+    } else if (player == 3) {
+      sword_color = "blue";
+      player = 0;
+    }
 
     if (angular.element(surface).hasClass("front")){
       swordWdith = window.innerWidth * 0.2;
@@ -54,6 +81,7 @@ gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, shared
       d = angular.element("<div class='sword' style='" + 
           "left:"+swordX+"px;" +
           "top:"+swordY+"px;" +
+          "background-image: url(./img/game/"+sword_color+"Sword_l.png);" +
       "'></div>");
       container.append(d); 
 
@@ -71,6 +99,7 @@ gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, shared
       d = angular.element("<div class='sword-right' style='" + 
           "left:"+swordX+"px;" +
           "top:"+swordY+"px;" +
+          "background-image: url(./img/game/"+sword_color+"Sword_r.png);" +
       "'></div>");
       container.append(d); 
 
@@ -80,19 +109,73 @@ gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, shared
     }
 
     $timeout(function(){
-        angular.element(d).remove();
-        angular.element(imgInserted[index]).addClass("show");
+      angular.element(d).remove();
+      angular.element(imgInserted[index]).addClass("show");
+
+      var poptry = [parseInt(surface.id[surface.id.length-1]), index];
+      if (poptry[0]==win[0] && poptry[1]==win[1]) {
+        head = angular.element( document.querySelector( '#cube-head' ) );
+        angular.element(head).addClass('popped');
+      }
     }, 2000); 
 
-    
-    
+   
+ 
+ 
     
   }
 
+  var spin = 0;
+  var spin_angle = -30;
 
   $scope.set = function(){
+    spin++;
+    spin_angle = spin_angle - 90;
+
     var a = angular.element( document.querySelector( '#cube' ) );
-    //a[0].style['webkitTransform'] = 'rotateX(' + -20 + 'deg) rotateY(' + -200 + 'deg) rotateZ(' + 0 + 'deg)';
+    head = angular.element( document.querySelector( '#cube-head' ) );
+    var frontPre_index;
+    var rightPre_index;
+    var rightNew_index;
+
+    if (spin == 4) {
+      spin = 0 ;
+      frontPre_index = 4;
+      rightPre_index = spin;
+      rightNew_index = spin + 1;
+      a[0].style['webkitTransform'] = 'rotateX(' + -20 + 'deg) rotateY(' + spin_angle + 'deg) rotateZ(' + 0 + 'deg)';
+      head[0].style['webkitTransform'] = 'rotateX(' + -20 + 'deg) rotateY(' + spin_angle + 'deg) rotateZ(' + 0 + 'deg)';
+    } else if (spin == 1) {
+      frontPre_index = spin - 1;
+      rightPre_index = spin;
+      rightNew_index = spin + 1;
+      a[0].style['webkitTransform'] = 'rotateX(' + -20 + 'deg) rotateY(' + spin_angle + 'deg) rotateZ(' + 0 + 'deg)';
+      head[0].style['webkitTransform'] = 'rotateX(' + -20 + 'deg) rotateY(' + spin_angle + 'deg) rotateZ(' + 0 + 'deg)';
+    } else if (spin == 2) {
+      frontPre_index = spin - 1;
+      rightPre_index = spin;
+      rightNew_index = spin + 1;
+      a[0].style['webkitTransform'] = 'rotateX(' + -20 + 'deg) rotateY(' + spin_angle + 'deg) rotateZ(' + 0 + 'deg)';
+      head[0].style['webkitTransform'] = 'rotateX(' + -20 + 'deg) rotateY(' + spin_angle + 'deg) rotateZ(' + 0 + 'deg)';
+    } else if (spin == 3) {
+      frontPre_index = spin - 1;
+      rightPre_index = spin;
+      rightNew_index = 0;
+      a[0].style['webkitTransform'] = 'rotateX(' + -20 + 'deg) rotateY(' + spin_angle + 'deg) rotateZ(' + 0 + 'deg)';
+      head[0].style['webkitTransform'] = 'rotateX(' + -20 + 'deg) rotateY(' + spin_angle + 'deg) rotateZ(' + 0 + 'deg)';
+    }
+
+    var frontPre = angular.element(document.getElementById("surface_"+frontPre_index));
+    angular.element(frontPre).removeClass('front');
+
+    var rightNew = angular.element(document.getElementById("surface_"+rightNew_index));
+    angular.element(rightNew).addClass('right');
+    $scope.imgSword[rightNew[0].id].dir = "r";
+
+    var rightPre = angular.element(document.getElementById("surface_"+rightPre_index));
+    angular.element(rightPre).removeClass('right');
+    angular.element(rightPre).addClass('front');
+    $scope.imgSword[rightPre[0].id].dir = "l";
   }
 
 

@@ -74,7 +74,7 @@ rect.hole.inserted {
 	-webkit-transform: translateZ(37px);
 }
 #cube .side:nth-child(6) {
-	-webkit-transform: translateZ(-37px);
+	-webkit-transform: translateZ(-37px) scale(-1,1);
 }
 
 .sword {
@@ -84,7 +84,7 @@ rect.hole.inserted {
 	position: fixed;
 	left: 110px;
 	top: 300px;
-	background-image: url(../img/game/greenSword.png);
+	background-image: url(../img/game/greenSword_l.png);
 	background-repeat: no-repeat;
 	background-size: 80px 60px;
 	background-position: 0px 60px;
@@ -171,6 +171,10 @@ svg image.show {
 	-webkit-backface-visibility: visible;
 	-webkit-transform: rotateX(-45deg) rotateY(50deg);
 	-webkit-transition: -webkit-transform 1s;
+}
+
+#cube-head.popped {
+	top:-200px;	
 }
 
 #cube-head .side {
