@@ -59,19 +59,7 @@ gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, shared
 
     var d;
 
-    if (player == 0) {
-      sword_color = "red";
-      player ++;
-    } else if (player == 1) {
-      sword_color = "green";
-      player ++;
-    } else if (player == 2) {
-      sword_color = "yellow";
-      player ++;
-    } else if (player == 3) {
-      sword_color = "blue";
-      player = 0;
-    }
+    
 
     if (angular.element(surface).hasClass("front")){
       swordWdith = window.innerWidth * 0.2;
@@ -110,6 +98,7 @@ gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, shared
 
     $timeout(function(){
       angular.element(d).remove();
+      $scope.imgSword[surface.id].hole[index].color = sword_color;
       angular.element(imgInserted[index]).addClass("show");
 
       var poptry = [parseInt(surface.id[surface.id.length-1]), index];
@@ -117,12 +106,23 @@ gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, shared
         head = angular.element( document.querySelector( '#cube-head' ) );
         angular.element(head).addClass('popped');
       }
+
+      if (player == 0) {
+        sword_color = "red";
+        player ++;
+      } else if (player == 1) {
+        sword_color = "green";
+        player ++;
+      } else if (player == 2) {
+        sword_color = "yellow";
+        player ++;
+      } else if (player == 3) {
+        sword_color = "blue";
+        player = 0;
+      }
+
     }, 2000); 
 
-   
- 
- 
-    
   }
 
   var spin = 0;
