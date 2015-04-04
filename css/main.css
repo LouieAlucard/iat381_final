@@ -137,12 +137,12 @@ rect.hole.inserted {
 	
 }
 
-svg image {
+#cube svg image {
 	opacity: 0;
 	display: none;
 }
 
-svg image.show {
+#cube svg image.show {
 	opacity: 1;
 }
 

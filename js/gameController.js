@@ -179,6 +179,14 @@ gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, shared
   }
 
 
+  $scope.avatarFace = sharedProperties.getImgData();
+
+
+
+
+
+
+
 
   $scope.holeW = $scope.svgWidth * 0.02;
   $scope.holeH = $scope.holeW * 3;
