@@ -48,9 +48,17 @@ gameApp.controller('photoCtrl', function ($scope, $document, $routeParams, share
 	}
 	);
 
-	
+	var flickr = new Flickr({
+	  api_key: "a922ffe639ea2cc29b9ece5cea2c0399"
+	});
 
-    
+	flickr.photos.search({
+	  text: "red+panda"
+	}, function(err, result) {
+	  if(err) { throw new Error(err); }
+	  console.log(result);
+	});
+
 
 });
 
