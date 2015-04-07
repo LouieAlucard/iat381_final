@@ -4,10 +4,10 @@ gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, shared
   var sword_color = "red";
     $scope.bgColor = sword_color;
   var win = [Math.floor(Math.random() * (3 - 0 + 1)), Math.floor(Math.random() * (3 - 0 + 1))];
-  win = [0, 1];
+  //win = [0, 1];
   var winCondition = false;
   var head;
-  //console.log(win);
+  console.log(win);
     
     $scope.replay = function() {
     $route.reload();

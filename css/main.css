@@ -197,7 +197,7 @@ rect.hole.inserted {
 	position: fixed;
 	left: 110px;
 	top: 300px;
-	background-image: url(../img/game/greenSword_l.png);
+	background-image: url(./img/game/greenSword_l.png);
 	background-repeat: no-repeat;
 	background-size: 80px 60px;
 	background-position: 0px 60px;
@@ -226,7 +226,7 @@ rect.hole.inserted {
 	position: fixed;
 	left: 110px;
 	top: 300px;
-	background-image: url(../img/game/greenSword_R.png);
+	background-image: url(./img/game/greenSword_R.png);
 	background-repeat: no-repeat;
 	background-size: 80px 60px;
 	background-position: 0px 60px;
@@ -428,7 +428,7 @@ rect.hole.inserted {
     margin-right: auto;
     padding: 9em 0.5em;
 
-    background: url(../img/game/drag1.png);
+    background: url(./img/game/drag1.png);
     background-size: 100%;
     background-repeat: no-repeat;
 
@@ -439,7 +439,7 @@ rect.hole.inserted {
 }
 
 .drag-drop.can-drop {
-    background: url(../img/game/drag2.png);
+    background: url(./img/game/drag2.png);
     background-size: 100%;
     height: auto;
     background-repeat: no-repeat;
