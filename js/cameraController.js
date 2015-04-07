@@ -27,7 +27,6 @@ gameApp.controller('camCtrl', function ($scope, $document, $routeParams, sharedP
             var canvas = document.createElement('canvas');
             var w = v.videoWidth ;
             var h = v.videoHeight;
-            console.log(v.videoHeight);
             canvas.width  = w;
             canvas.height = h;
             var ctx = canvas.getContext('2d');
