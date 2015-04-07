@@ -35,7 +35,7 @@ gameApp.config(['$routeProvider',
 
 
 gameApp.service('sharedProperties', function () {
-    var imgUrl = "./img/game/drag2.png";
+    var imgUrl = "./img/game/faceDefault.png";
     var getImgData = function(){
         return imgUrl;
     }
