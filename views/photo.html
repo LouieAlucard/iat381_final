@@ -1,0 +1,32 @@
+<!--
+<a href="#/main"><h1>main</h1></a>
+<a href="#/photo"><h1>phtoo</h1></a>
+-->
+
+<div>
+    <a class="back scale" href="#/camera"><img src="./img/game/buttonBack.png" height="12%" width="12%"></a>
+    <h4 class="center white title">Photo Library</h4>
+</div>
+
+<div>
+    <div>
+        <div class="photoCol heading">
+            <p class="white center">Select one of <br> your favorite face !</p>
+        </div>
+        <div class="photoCol heading">
+            <p class="white center">Or search a funny face from<img class="space" src="./img/game/flickr.png" height="auto" width="30%"> .</p>
+            <input class="img-center" type="text" name="input" ng-model="flickrKey" ng-change="flickrSearch()">
+        </div>
+        
+        
+    </div>
+    <div class="photoCol">
+        <div id='list'></div>
+    </div>
+    <div class="photoCol right">
+        <div class="center" id="gallery-flickr" class="thumbnails"></div>
+    </div>
+</div>
+
+
+
