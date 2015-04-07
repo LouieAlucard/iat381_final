@@ -65,7 +65,7 @@ gameApp.controller('photoCtrl', function ($scope, $document, $routeParams, share
 	}
 	);
     
-    $scope.flickrKey = "dragon";
+    $scope.flickrKey = "flickr search";
 
 	$scope.flickrSearch = function () {
 		var flickr = new Flickr({
@@ -73,18 +73,22 @@ gameApp.controller('photoCtrl', function ($scope, $document, $routeParams, share
 		});
 
 		flickr.photos.search({
-		  text: $scope.flickrKey
+		  text: $scope.flickrKey+" face"
 		}, function(err, result) {
 		  if(err) { throw new Error(err); }
             var gallery = document.getElementById('gallery-flickr');
 			  	gallery.innerHTML = '';
 
-		  	for (i = 0; i < 5; i++) {
+		  	for (i = 0; i < 6; i++) {
 			  	var imglink = "https://farm"+result.photos.photo[i].farm+".staticflickr.com/"+result.photos.photo[i].server+"/"+result.photos.photo[i].id+"_"+result.photos.photo[i].secret+".jpg" 
-			  	var ele = document.createElement('img');
-	            ele.setAttribute('src', imglink);
+			  	var ele = document.createElement('div');
+                var heightset = document.getElementById("list").childNodes[0].clientHeight;
+                
+	            ele.style.backgroundImage = "url("+imglink+")";
+                ele.style.height = heightset + "px";
+                ele.style.backgroundSize = "120% 120%";
 	            ele.addEventListener("click", function($event){
-				    sharedProperties.setImgData(event.target.getAttribute('src'));
+				    sharedProperties.setImgData(imglink);
 				    $window.location.href = '#/game';
 				});
                 

@@ -3,12 +3,26 @@
     src: url('./font/BIG JOHN.otf');
 }
 
+@font-face{
+    font-family: "Slim Joe";
+    src:url('./font/Slim Joef.otf');
+}
+
 body { 
     background: rgba(244, 218, 190, 1);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h4{
     font-family: "big john";
+}
+
+h5, h6 {
+    font-family: "slim joe";
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 200;
 }
 
 .center {
@@ -18,6 +32,55 @@ h1, h2, h3, h4, h5, h6 {
 .white {
     color: white;
     margin: 1em;
+}
+
+.back {
+     margin: 3%;
+}
+
+a.scale:hover,
+a.scale:focus,
+a.scale:active {
+    -webkit-transform: scale(1.2);
+    -webkit-transition: -webkit-transform .5s;
+}
+
+.right{
+    float: right;
+}
+
+.space {
+    padding-left: 4%;
+}
+
+.up {
+    margin-top: -10%;
+}
+
+.img-center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 10px;
+}
+
+img.hvr-grow {
+    background-color: black;
+    
+    display: inline-block;
+    vertical-align: middle;
+    transform: translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    backface-visibility: hidden;
+    -webkit-osx-font-smoothing: grayscale;
+    transition-duration: 0.3s;
+    transition-property: transform;
+}
+
+img.hvr-grow:hover,
+img.hvr-grow:focus,
+img.hvr-grow:active {
+    -webkit-transform: scale(3);
 }
 
 /********************** game **********************/
@@ -33,6 +96,24 @@ h1, h2, h3, h4, h5, h6 {
     border: none;
 }
 */
+
+.rotate{
+/*
+    -webkit-animation: swing 1s ease;
+        animation: swing 1s ease;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+*/
+    -webkit-transform: rotateZ(-30deg);
+        -ms-transform: rotateZ(-30deg);
+        transform: rotateZ(-30deg);
+/*
+    -webkit-transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
+    transform: perspective(400px) rotate3d(0, 1, 0, -360deg);
+    -webkit-animation-timing-function: ease-out;
+    animation-timing-function: ease-out;
+*/
+}
 
 svg.game {
     background: rgba(72,118,180,1);
@@ -53,6 +134,7 @@ rect.hole.inserted {
 	height: 125px;
 /*	cursor: pointer;*/
 	z-index: 0;
+    
 }
 
 #cube {
@@ -66,9 +148,17 @@ rect.hole.inserted {
 	-webkit-transform-style: preserve-3d;
 	-webkit-transform-origin: center center;
 	-webkit-backface-visibility: visible;
-	-webkit-transform: rotateX(-45deg) rotateY(50deg);
+	-webkit-transform: rotateX(-20deg) rotateY(-30deg) rotateZ(0deg);
 	-webkit-transition: -webkit-transform 1s;
+    
+    -webkit-animation:spin 2s ease  1;
+    animation:spin 2s ease 1;
 }
+
+
+
+@-webkit-keyframes spin { 100% { -webkit-transform: rotateX(-20deg) rotateY(-390deg) rotateZ(0deg); } }
+@keyframes spin { 100% { -webkit-transform: rotateX(-20deg) rotateY(-390deg) rotateZ(0deg) scale(1); transform:rotateX(-20deg) rotateY(-390deg) rotateZ(0deg); } }
 
 .side {
 	position: absolute;
@@ -176,6 +266,14 @@ rect.hole.inserted {
 	z-index: 0;
 }
 
+#cube-headarea.popped {
+    -webkit-transition: 0.5s ease-out;
+    transition: 0.35s ease-out;
+    
+    -webkit-transform: translate(0,-20em);
+    transform: translate(0,-20em);
+}
+
 #cube-head {
 	position: absolute;
 	left: 25px;
@@ -189,10 +287,29 @@ rect.hole.inserted {
 	-webkit-backface-visibility: visible;
 	-webkit-transform: rotateX(-45deg) rotateY(50deg);
 	-webkit-transition: -webkit-transform 1s;
+    
+    -webkit-transform-style: preserve-3d;
+	-webkit-transform-origin: center center;
+	-webkit-backface-visibility: visible;
+	-webkit-transform: rotateX(-20deg) rotateY(-30deg) rotateZ(0deg);
+	-webkit-transition: -webkit-transform 1s;
+    
+    -webkit-animation:spin 2s ease  1;
+    animation:spin 2s ease 1;
+/*    -webkit-animation-iteration-count: 1;*/
 }
 
 #cube-head.popped {
-	top:-200px;	
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+    transition: 1s ease-in-out;
+    
+    -webkit-transform: translate(3em,0);
+    -moz-transform: translate(3em,0);
+    -o-transform: translate(3em,0);
+    -ms-transform: translate(3em,0);
+    transform: translate(3em,0);
 }
 
 #cube-head .side {
@@ -228,14 +345,44 @@ rect.hole.inserted {
 #endMenu {
     display: none;
     position: fixed;
-    top: 150px;
+    top: 0px;
+    color: white;
+    
+    background-color: black;
+    opacity: 0.5;
+    height: 100%;
+    z-index: 100;
+    
+
 }
 
 #endMenu.show{
-    display: block;
+    width: 100%;
+    text-align: center;
 }
 
+.playerBox {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+/*    margin-top: 150%;*/
+    
+    opacity: 0.6;
+    padding: 1% 0;
+    color: rgba(244, 218, 190, 1);
+}
 
+.bottom {
+    margin-top: 25%;
+}
+
+.padding {
+    padding: 0 10%;
+}
+
+.endCenter {
+    text-align: center;
+}
 
 
 /********************** drag and drop **********************/
@@ -300,17 +447,29 @@ rect.hole.inserted {
     transition: background 0.2s;
 }
 
+#bounce {
+    margin-bottom: 10%;
+    
+    -webkit-animation-duration: 1s;
+    -webkit-animation-delay: 0.5s;
+    -webkit-animation-iteration-count: 2;
+    -webkit-animation-timing-function:linear;
+}
+
+#yes-drop {
+    -webkit-animation: swing 1s ease;
+        animation: swing 1s ease;
+        -webkit-animation-iteration-count: 1;
+        animation-iteration-count: 1;
+}
+
 /********************** camera **********************/
+
+/*
 video {
     margin-left: -60%;
 }
-
-.cameraContainer video {
-    position: absolute;
-    left: 0;
-    top: 0;
-    margin-left: -60%;
-}
+*/
 
 .cameraContainer img {
     position: absolute;
@@ -319,15 +478,37 @@ video {
 }
 
 .cameraContainer {
- position: relative;
+    position: relative;
+    width: 100%;
+    height: 75vh;
 }
+
+#cameraIMG {
+    height:100%;
+    
+}
+
+.cameraContainer video {
+    height: 100%;
+}
+
 
 #pirateFace {
     position: absolute;
-    top: 50px;
+    top: 0;
     left: 0;
     z-index: 100;
     width: 100%;
+}
+
+.middle{
+    text-align: center;
+    padding-left: 5%;
+    padding-top: 5%;
+}
+
+.middle img{
+    vertical-align: center;
 }
 
 button{
@@ -336,27 +517,90 @@ button{
     border: 0px outset buttonface;
 }
 
+#Camerabutton {
+    width: 30%;
+    float:left;
+}
+
+#retake {
+    width: 30%;
+    float:left;
+    padding-top: 5%;
+}
+
+#save {
+    width: 30%;
+    float:left;
+    padding-top: 5%;
+}
 
 /********************** photo **********************/
 
+.title {
+    margin-bottom: 0;
+    margin-top: -1%;
+}
+
+.photoCol {
+    width: 50%;
+    float: left;
+    }
+
+.photoCol.heading {
+    height: 10vh;
+    padding-bottom: 120px;
+}
+
 #list div{
     float:left;
-    width: 50%;
-    position: relative;
-}
-
-#list div img:first-child{
     width: 100%;
+    position: relative;
+    
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
 }
 
-#gallery-flickr img{
-    width: 50%;
+#list {
+    width: 100%;
+    }
+
+#list div img {
+    width: 100%;
 }
 
 #list div img.deleteBtn{
 	position: absolute;
-	width: 10%;
+	width: 15%;
 	top: 0;
 	right: 0;
 	z-index: 50;
 }
+
+#gallery-flickr{
+    width: 100%;
+}
+
+#gallery-flickr img{
+    width: 100%;
+    max-height: 180px;
+}
+
+#gallery-flickr div{
+    width: 100%;
+    
+    border-style: solid;
+    border-color: white;
+    border-width: 3px;
+}
+
+
+
+input {
+    background-color: white;
+    border-radius: 4px;
+    padding: 5px;
+    border: 0px outset buttonface;
+    text-align: center; 
+}
+

@@ -16,6 +16,9 @@ gameApp.controller('camCtrl', function ($scope, $document, $routeParams, sharedP
         var video = document.querySelector('video');
         video.src = window.URL.createObjectURL(localMediaStream);
         video.play();
+        
+        var ow = document.getElementsByClassName("cameraContainer")[0].offsetWidth;
+        console.log(ow);
  
         var button = document.getElementById('Camerabutton');
         button.onclick = function () {

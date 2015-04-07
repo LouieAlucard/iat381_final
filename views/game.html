@@ -1,11 +1,18 @@
-<a href="#/main"><img src="../img/game/buttonBack.png" height="23" width="31"></a>
-
 <div id="endMenu" ng-class="{{ending}}">
-    <a ng-click="replay()" id="replay"><img src="../img/game/buttonReplay.png" height="50" width="50"></a>
-    <a href="#/main" id="home"><img src="../img/game/buttonHome.png" height="50" width="50"></a>
+    <div class="bottom">
+        <p>YAY !</p>
+        <p>You have popped out the pirate's head !</p>
+        <h4>Play again ? go Home ?</h4>
+    </div>
+    <div class="endCenter">
+        <a class="scale padding" ng-click="replay()" id="replay"><img src="../img/game/buttonReplay.png" height="50" width="50"></a>
+        <a class="scale padding" href="#/main" id="home"><img src="../img/game/buttonHome.png" height="50" width="50"></a>
+    </div>
 </div>
 
+<a class="back scale" href="#/main"><img src="../img/game/buttonBack.png" height="12%" width="12%"></a>
 
+<div>
 <div 
 	id="cube-hitarea" 
 	style="left: {{boxLeft}}px; 
@@ -13,11 +20,9 @@
 		   -ms-transform: scale({{boxScale}},{{boxScale}}); 
 		   -webkit-transform: scale({{boxScale}},{{boxScale}});
 		   transform: scale({{boxScale}},{{boxScale}});"
-	ng-swipe-left="set(1)" ng-swipe-right="set(0)">
+	ng-swipe-left="set(1)" ng-swipe-right="set(-1)">
 
-	<div id="cube" style="-webkit-transform: rotateX(-20deg) rotateY(-30deg) rotateZ(0deg);" >
-        
-        
+	<div id="cube">
         <svg class="side" width="100px" height="100px">
 			<rect fill="#754c24" width="74" height="74"></rect>
 		</svg>
@@ -26,7 +31,6 @@
 		</svg>
 		<svg class="side right" id="surface_1" width="100px" height="100px">
 			<rect fill="#603813" width="74" height="74"></rect>
-			
             <g>
 				<rect fill="black" x="18" y="15" width="7" height="20" ng-click="insert($event)"></rect>
 				<rect fill="black" x="48" y="15	" width="7" height="20" ng-click="insert($event)"></rect>
@@ -109,7 +113,7 @@
 			<image ng-xlink-href="../img/game/faceLeft.png" xlink:href=""  x="0" y="0" width="100%" height="100%"/>
 		</svg>
 		<svg class="side" width="100px" height="100px">
-			<image ng-xlink-href="../img/game/faceBack.png" xlink:href=""  x="0" y="0" width="100%" height="100%"/>
+			<image ng-xlink-href="../img/game/faceRight.png" xlink:href=""  x="0" y="0" width="100%" height="100%"/>
 		</svg>
 		<svg class="side" width="100px" height="100px">
 			<image ng-xlink-href="{{avatarFace}}" xlink:href=""  x="0" y="0" width="100%" height="100%"/>
@@ -119,6 +123,7 @@
 			<image ng-xlink-href="../img/game/faceBack.png" xlink:href=""  x="0" y="0" width="100%" height="100%"/>
 	</div>
 </div>
+    </div>
     
 
-<div style="background-color:{{bgColor}}; width:20px; height:70px"></div>
+<div class="playerBox" style="background-color:{{bgColor}};"><h4 class="white space">next player.</h4></div>
