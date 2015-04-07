@@ -1,11 +1,11 @@
 @font-face{
     font-family: "big john";
-    src: url('./font/BIG JOHN.otf');
+    src: url('../font/BIG JOHN.otf');
 }
 
 @font-face{
     font-family: "Slim Joe";
-    src:url('./font/Slim Joef.otf');
+    src:url('../font/Slim Joef.otf');
 }
 
 body { 
