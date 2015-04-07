@@ -197,7 +197,7 @@ rect.hole.inserted {
 	position: fixed;
 	left: 110px;
 	top: 300px;
-	background-image: url(./img/game/greenSword_l.png);
+	background-image: url(../img/game/greenSword_l.png);
 	background-repeat: no-repeat;
 	background-size: 80px 60px;
 	background-position: 0px 60px;
@@ -226,7 +226,7 @@ rect.hole.inserted {
 	position: fixed;
 	left: 110px;
 	top: 300px;
-	background-image: url(./img/game/greenSword_R.png);
+	background-image: url(../img/game/greenSword_R.png);
 	background-repeat: no-repeat;
 	background-size: 80px 60px;
 	background-position: 0px 60px;
