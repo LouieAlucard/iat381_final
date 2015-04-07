@@ -6,7 +6,7 @@ interact('.dropzone#cameraFace-zone').dropzone({
   // only accept elements matching this CSS selector
   accept: '#yes-drop',
   // Require a 75% element overlap for a drop to be possible
-  overlap: 0.25,
+  overlap: 0.05,
 
   // listen for drop related events:
 
@@ -57,7 +57,7 @@ interact('.dropzone#defaultFace-zone').dropzone({
   // only accept elements matching this CSS selector
   accept: '#yes-drop',
   // Require a 75% element overlap for a drop to be possible
-  overlap: 0.25,
+  overlap: 0.05,
 
   // listen for drop related events:
 

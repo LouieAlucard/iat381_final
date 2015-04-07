@@ -551,6 +551,10 @@ button{
     padding-bottom: 120px;
 }
 
+.photoCol.right{
+    float: right;
+}
+
 #list div{
     float:left;
     width: 100%;

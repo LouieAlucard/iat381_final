@@ -65,7 +65,7 @@ gameApp.controller('photoCtrl', function ($scope, $document, $routeParams, share
 	}
 	);
     
-    $scope.flickrKey = "flickr search";
+    $scope.flickrKey = "type somthing";
 
 	$scope.flickrSearch = function () {
 		var flickr = new Flickr({
@@ -82,11 +82,18 @@ gameApp.controller('photoCtrl', function ($scope, $document, $routeParams, share
 		  	for (i = 0; i < 6; i++) {
 			  	var imglink = "https://farm"+result.photos.photo[i].farm+".staticflickr.com/"+result.photos.photo[i].server+"/"+result.photos.photo[i].id+"_"+result.photos.photo[i].secret+".jpg" 
 			  	var ele = document.createElement('div');
-                var heightset = document.getElementById("list").childNodes[0].clientHeight;
+                var heightset = document.getElementById("list").childNodes[1];
                 
 	            ele.style.backgroundImage = "url("+imglink+")";
-                ele.style.height = heightset + "px";
-                ele.style.backgroundSize = "120% 120%";
+                if (heightset != null) {
+                    ele.style.height = heightset.clientHeight + "px";
+                    console.log(heightset.clientHeight);
+                } else {
+                    ele.style.height = "180px";
+                    console.log("1");
+                }
+                
+                ele.style.backgroundSize = "110% 110%";
 	            ele.addEventListener("click", function($event){
 				    sharedProperties.setImgData(imglink);
 				    $window.location.href = '#/game';
