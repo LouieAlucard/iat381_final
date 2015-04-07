@@ -476,6 +476,8 @@ rect.hole.inserted {
     position: relative;
     width: 100%;
     height: 75vh;
+    
+    z-index: -100;
 }
 
 #cameraIMG {
@@ -491,14 +493,16 @@ rect.hole.inserted {
     position: absolute;
     top: 0;
     left: 0;
-    z-index: 100;
+    z-index: 5;
     width: 100%;
+    
 }
 
 .middle{
     text-align: center;
     padding-left: 5%;
     padding-top: 5%;
+    
 }
 
 .middle img{
