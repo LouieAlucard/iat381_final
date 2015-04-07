@@ -19,6 +19,10 @@ gameApp.config(['$routeProvider',
                 templateUrl: 'views/photo.html',
                 controller: 'photoCtrl'
             }).
+            when('/player', {
+                templateUrl: 'views/player.html',
+                controller: 'playerCtrl'
+            }).
 			when('/game', {
 				templateUrl: 'views/game.html',
 				controller: 'gameCtrl'

@@ -128,9 +128,14 @@ gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, shared
   var spin = 0;
   var spin_angle = -30;
 
-  $scope.set = function(){
+  $scope.set = function(dir){
     spin++;
-    spin_angle = spin_angle - 90;
+    if (dir == 1) {
+      spin_angle = spin_angle - 90;
+    } else {
+      spin_angle = spin_angle + 90;
+    }
+    
 
     var a = angular.element( document.querySelector( '#cube' ) );
     head = angular.element( document.querySelector( '#cube-head' ) );

@@ -1,6 +1,19 @@
 body { 
 }
 
+#list div {
+	position: relative;
+}
+
+#list div img.deleteBtn{
+	position: absolute;
+	width: 10%;
+	top: 0;
+	right: 0;
+	z-index: 50;
+}
+
+
 .navbar-fixed-top {
     z-index: 10;
     background: #213c48;

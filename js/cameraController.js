@@ -1,6 +1,8 @@
 gameApp.controller('camCtrl', function ($scope, $document, $routeParams, sharedProperties, $location, $http, $timeout) {
 
-  
+  	
+
+
 	navigator.getUserMedia = (
     navigator.getUserMedia ||
     navigator.webkitGetUserMedia ||
@@ -31,8 +33,10 @@ gameApp.controller('camCtrl', function ($scope, $document, $routeParams, sharedP
             //console.log(imgData);
             
             //eCardAppService.setUserImage(imgData);
-            //document.getElementById('cameraIMG').setAttribute( 'src', imgData);
-            document.getElementById('svgimgtest').setAttribute('xlink:href', imgData);
+            document.getElementById('cameraIMG').setAttribute( 'src', imgData);
+
+            var v = document.getElementById('cameraVideo');
+            v.style.display = 'none';
 
     
         }
@@ -66,6 +70,9 @@ gameApp.controller('camCtrl', function ($scope, $document, $routeParams, sharedP
 	    $save.click(function () {
 	      var imgD = document.getElementById('svgimgtest').getAttribute('xlink:href');
 
+	      sharedProperties.setImgData(imgD);
+		  $window.location.href = '#/game';
+
 	      
 	      conn.insert({
 	        photos: [
@@ -78,7 +85,7 @@ gameApp.controller('camCtrl', function ($scope, $document, $routeParams, sharedP
 	        if (err) { return console.error(err); }
 	      })
 
-	      console.log(imgD);
+	      //console.log(imgD);
 	    });
 	  });
 	}
