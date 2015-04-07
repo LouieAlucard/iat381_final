@@ -18,13 +18,16 @@ gameApp.controller('camCtrl', function ($scope, $document, $routeParams, sharedP
         video.play();
         
         var ow = document.getElementsByClassName("cameraContainer")[0].offsetWidth;
-        console.log(ow);
+        //console.log(ow);
  
         var button = document.getElementById('Camerabutton');
         button.onclick = function () {
+            var v = document.getElementById("cameraVideo");
+            
             var canvas = document.createElement('canvas');
-            var w = 450;
-            var h = 450;
+            var w = v.videoWidth ;
+            var h = v.videoHeight;
+            console.log(v.videoHeight);
             canvas.width  = w;
             canvas.height = h;
             var ctx = canvas.getContext('2d');
@@ -39,7 +42,13 @@ gameApp.controller('camCtrl', function ($scope, $document, $routeParams, sharedP
             cI.setAttribute( 'src', imgData);
             cI.style.display = "block";
             
-            var v = document.getElementById("cameraVideo");
+            
+            var pface = document.getElementById('pirateFace');
+            pface.style.height = cI.clientHeight+"px";
+            
+            
+
+
             v.style.display = "none";
 
             var btn1 = document.getElementById("retake");

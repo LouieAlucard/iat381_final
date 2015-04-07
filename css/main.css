@@ -465,11 +465,6 @@ rect.hole.inserted {
 
 /********************** camera **********************/
 
-/*
-video {
-    margin-left: -60%;
-}
-*/
 
 .cameraContainer img {
     position: absolute;
@@ -484,12 +479,11 @@ video {
 }
 
 #cameraIMG {
-    height:100%;
-    
+    width:100%;
 }
 
 .cameraContainer video {
-    height: 100%;
+    width: 100%;
 }
 
 
