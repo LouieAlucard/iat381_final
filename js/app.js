@@ -31,43 +31,18 @@ gameApp.config(['$routeProvider',
 
 
 gameApp.service('sharedProperties', function () {
-    var data = [
-        {
-        "iconUrl":      "1",
-        "iconClass":    "taskIcon",
-        "detailUrl":    "Food Package",
-        "title":        "Assignment 02",
-        "content":      "- due on Sunday!"},
-        {
-        "iconUrl":      "3",
-        "iconClass":    "taskIcon",
-        "detailUrl      ":"Food Package",
-        "title":        "Mailing",
-        "content":      "- Post office closes at 5"},
-        {
-        "iconUrl":      "7",
-        "iconClass":    "taskIcon",
-        "detailUrlas":  "Food Package",
-        "title":        "Grocery",
-        "content":      "- tomato, carrot, milk, egg"},
-        {
-        "iconUrl":      "2",
-        "iconClass":    "taskIcon",
-        "detailUrl":    "Food Package",
-        "title":        "Tax Filing",
-        "content":      "- $ 205"}
-    ];
-    var getTaskData = function(){
-        return data;
+    var imgUrl = "./img/game/faceDefault.png";
+    var getImgData = function(){
+        return imgUrl;
     }
     
-    var removeTaskData = function(num){
-        data.splice (num, 1);
+    var setImgData = function(str){
+        imgUrl = str;
     }
 
     return {
-        getTaskData: getTaskData,
-        removeTaskData: removeTaskData
+        getImgData: getImgData,
+        setImgData: setImgData
     };
 });
 

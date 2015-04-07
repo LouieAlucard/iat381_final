@@ -1,6 +1,7 @@
-gameApp.controller('camCtrl', function ($scope, $document, $routeParams, sharedProperties, $location, $http, $timeout) {
+gameApp.controller('camCtrl', function ($scope, $document, $routeParams, sharedProperties, $location, $http, $timeout, $window) {
 
-  
+    $scope.videoHeight = window.innerHeight * 0.8;
+    
 	navigator.getUserMedia = (
     navigator.getUserMedia ||
     navigator.webkitGetUserMedia ||
@@ -15,6 +16,9 @@ gameApp.controller('camCtrl', function ($scope, $document, $routeParams, sharedP
         var video = document.querySelector('video');
         video.src = window.URL.createObjectURL(localMediaStream);
         video.play();
+        
+        var ow = document.getElementsByClassName("cameraContainer")[0].offsetWidth;
+        console.log(ow);
  
         var button = document.getElementById('Camerabutton');
         button.onclick = function () {
@@ -31,15 +35,38 @@ gameApp.controller('camCtrl', function ($scope, $document, $routeParams, sharedP
             //console.log(imgData);
             
             //eCardAppService.setUserImage(imgData);
-            //document.getElementById('cameraIMG').setAttribute( 'src', imgData);
-            document.getElementById('svgimgtest').setAttribute('xlink:href', imgData);
+            var cI = document.getElementById('cameraIMG');
+            cI.setAttribute( 'src', imgData);
+            cI.style.display = "block";
+            
+            var v = document.getElementById("cameraVideo");
+            v.style.display = "none";
 
-    
+            var btn1 = document.getElementById("retake");
+            var btn2 = document.getElementById("save");
+            
+            btn1.style.visibility = "visible";
+            btn2.style.visibility = "visible";
         }
  
     }, function (err) {
       alert(err);
     });
+    
+    
+     $scope.retake = function() {
+            var v = document.getElementById("cameraVideo");
+            v.style.display = "block";
+            
+            var cI = document.getElementById('cameraIMG');
+            cI.style.display = "none";
+         
+            var btn1 = document.getElementById("retake");
+            var btn2 = document.getElementById("save");
+            
+            btn1.style.visibility = "hidden";
+            btn2.style.visibility = "hidden";
+        }
 
 
     sklad.open('photo_store', {
@@ -64,8 +91,10 @@ gameApp.controller('camCtrl', function ($scope, $document, $routeParams, sharedP
 	    var $save = $('#save');
 	 
 	    $save.click(function () {
-	      var imgD = document.getElementById('svgimgtest').getAttribute('xlink:href');
-
+	      var imgD = document.getElementById('cameraIMG').getAttribute('src');
+        
+          sharedProperties.setImgData(imgD);
+		  $window.location.href = '#/game';
 	      
 	      conn.insert({
 	        photos: [
