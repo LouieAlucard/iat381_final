@@ -8,22 +8,31 @@
     <h4 class="center white title">Photo Library</h4>
 </div>
 
-<div>
+
+
+        
+        
+            
+
+
     <div>
-        <div class="photoCol heading">
+        <div class="photoCol heading" ng-click="first = true; second = false" ng-class="{ 'active': first }">
             <p class="white center">Select one of <br> your favorite face !</p>
         </div>
-        <div class="photoCol heading">
+        <div class="photoCol heading" ng-click="first = false; second = true " ng-class="{ 'active': second }">
             <p class="white center">Or search a funny face from<img class="space" src="./img/game/flickr.png" height="auto" width="30%"> .</p>
-            <input class="img-center" type="text" name="input" ng-model="flickrKey" ng-change="flickrSearch()">
+            
         </div>
+    
         
         
     </div>
-    <div class="photoCol">
+<div>
+    <div class="" ng-class="{ 'hidden': !first }">
         <div id='list'></div>
     </div>
-    <div class="photoCol right">
+    <div class="" ng-class="{ 'hidden': !second }">
+        <input class="img-center" type="text" name="input" ng-model="flickrKey" ng-change="flickrSearch()">
         <div class="center" id="gallery-flickr" class="thumbnails"></div>
     </div>
 </div>

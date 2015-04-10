@@ -540,13 +540,22 @@ button{
 }
 
 .photoCol {
-    width: 50%;
+    width: 46%;
     float: left;
     }
 
 .photoCol.heading {
-    height: 10vh;
-    padding-bottom: 120px;
+    margin: 2% 2%;
+}
+
+.photoCol.heading.active,
+.photoCol.heading:hover
+{
+    border-radius: 4px;
+    color: #f4dabe;
+    background: #e9ba8e;
+    
+    -webkit-transition: 0.3s;
 }
 
 .photoCol.right{
@@ -555,7 +564,7 @@ button{
 
 #list div{
     float:left;
-    width: 100%;
+    width: 50%;
     position: relative;
     
     border-style: solid;
@@ -589,7 +598,8 @@ button{
 }
 
 #gallery-flickr div{
-    width: 100%;
+    float:left;
+    width: 50%;
     
     border-style: solid;
     border-color: white;
