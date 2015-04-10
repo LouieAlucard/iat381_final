@@ -2,6 +2,8 @@ gameApp.controller('camCtrl', function ($scope, $document, $routeParams, sharedP
 
     $scope.videoHeight = window.innerHeight * 0.8;
     
+
+    //Get device Camera
 	navigator.getUserMedia = (
     navigator.getUserMedia ||
     navigator.webkitGetUserMedia ||

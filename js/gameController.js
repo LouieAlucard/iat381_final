@@ -13,6 +13,7 @@ gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, shared
     $route.reload();
     }
 
+  $scope.stab = 0;
 
   $scope.imgSword = {
     "surface_0":{
@@ -49,6 +50,7 @@ gameApp.controller('gameCtrl', function ($scope, $document, $routeParams, shared
   $scope.svgHeight = window.innerHeight;
 
   $scope.insert = function(event){
+    $scope.stab ++;
     var container = angular.element(document.getElementById('swordHolder_front'));
 
     var hole = event.target;

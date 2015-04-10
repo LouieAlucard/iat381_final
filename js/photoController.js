@@ -1,5 +1,9 @@
 gameApp.controller('photoCtrl', function ($scope, $document, $routeParams, sharedProperties, $location, $http, $timeout, $window) {
-
+    
+    
+    $scope.first = true;
+    $scope.second = false;
+  
 	sklad.open('photo_store', {
 	  version: 1,
 	  migration: {
@@ -85,14 +89,7 @@ gameApp.controller('photoCtrl', function ($scope, $document, $routeParams, share
                 var heightset = document.getElementById("list").childNodes[1];
                 
 	            ele.style.backgroundImage = "url("+imglink+")";
-                if (heightset != null) {
-                    ele.style.height = heightset.clientHeight + "px";
-                    console.log(heightset.clientHeight);
-                } else {
-                    ele.style.height = "180px";
-                    console.log("1");
-                }
-                
+                ele.style.height = "180px";
                 ele.style.backgroundSize = "110% 110%";
 	            ele.addEventListener("click", function($event){
 				    sharedProperties.setImgData(imglink);
@@ -108,5 +105,4 @@ gameApp.controller('photoCtrl', function ($scope, $document, $routeParams, share
 		});
 	}
 });
-
 
